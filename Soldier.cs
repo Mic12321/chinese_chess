@@ -1,10 +1,9 @@
 class Soldier : Piece
 {
-    public Soldier(Location _location)
+    public Soldier(Colour _colour) 
     {
-        location = _location;
+        colour = _colour;
     }
-
 
     // private bool isValidMoveBeforeRiver(Location _location) 
     // {
