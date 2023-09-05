@@ -1,29 +1,42 @@
 class Soldier : Piece
 {
-    public Soldier(Colour _colour) 
+    private bool initLocationIsUpper;
+
+    public Soldier(Colour _colour, Location location) 
     {
         colour = _colour;
+
+        if (location.row==3) { initLocationIsUpper=true; }
+        else if (location.row==6) { initLocationIsUpper=false; }
+    }
+    
+    private bool isValidMoveBeforeRiver(Location currentLocation, Location targetLocation) 
+    {
+        return (isMoveOneForward(currentLocation, targetLocation) && (isRowSame(currentLocation, targetLocation)));
     }
 
-    // private bool isValidMoveBeforeRiver(Location _location) 
-    // {
-    //     return (moveOneForward(_location) && (isRowSame(_location)));
-    // }
-
-    // public bool isValidMove(Location _location) 
-    // {
-
-    //     // Before crossing river
-    //     if (location<5) 
-    //     {
-    //         return validMoveBeforeRiver(_location);
-    //     }
-
-    //     // Crossed river
-    //     else {
-    //         return (validMoveBeforeRiver(_location) || (isMoveOneHorizontal(_location) && (isColumnSame(_location))));
-    //     }
+    private bool _isValidMove(Location currentLocation, Location targetLocation) 
+    {
         
-    // }
+        // Before crossing river
+        if (currentLocation.row<5) 
+        {
+            return isValidMoveBeforeRiver(currentLocation, targetLocation);
+        }
+
+        // Crossed river
+        else {
+            return (isValidMoveBeforeRiver(currentLocation, targetLocation) || (isMoveOneHorizontal(currentLocation, targetLocation) && (isColumnSame(currentLocation, targetLocation))));
+        }
+    }
+
+    public bool isValidMove(Location currentLocation, Location targetLocation, Board board) 
+    {
+        if (!isOnBoard(targetLocation, board)) { return false; }
+        else if (isTargetLocationGetBlocked(targetLocation, board)) { return false; }
+
+        else if (initLocationIsUpper) { return _isValidMove(currentLocation, targetLocation); }
+        else { return _isValidMove(flipLocationToUpper(currentLocation, board), flipLocationToUpper(targetLocation, board)); }
+    }
     
 }

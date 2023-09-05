@@ -17,10 +17,11 @@ class ChineseChess
         playerPassed = false;
     }
 
-    // private void changeCurrentPlayer() 
-    // {
-    //     if (currentPlayer )
-    // }
+    private void changeCurrentPlayer() 
+    {
+        if (currentPlayer.roleColour == Colour.Black) { currentPlayer = redPlayer; }
+        else { currentPlayer = blackPlayer; }
+    }
 
     private void gameFinish() 
     {
@@ -28,19 +29,13 @@ class ChineseChess
         System.Console.WriteLine("Game is finished, thanks for playing");
     }
 
-    private void PassController(bool isPass)
+    private void pass()
     {
-        if (isPass)
-        {
-            if (playerPassed) {
-                gameFinish();
-            }
-            else {
-                playerPassed = true;
-            }
+        if (playerPassed) {
+            gameFinish();
         }
         else {
-            playerPassed = false;
+            playerPassed = true;
         }
     }
 
@@ -60,7 +55,7 @@ class ChineseChess
 
             if (input=="pass")
             {
-                PassController(true);
+                pass();
                 break;
             }
 
@@ -76,8 +71,8 @@ class ChineseChess
 
 
 
-                    
-
+                    // If move is valid
+                    playerPassed = false;
 
                 }
                 catch (System.FormatException) { System.Console.WriteLine("Player " + currentPlayer.roleColour + " invalid move, format or index issue"); }
@@ -88,12 +83,5 @@ class ChineseChess
 
             
         }
-    }
-
-    public Location mirrorLocation(Location _location, int columnTotalLength) 
-    {
-        _location.column=columnTotalLength-_location.column;
-
-        return _location;
     }
 }
