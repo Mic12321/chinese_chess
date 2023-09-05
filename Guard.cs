@@ -13,9 +13,9 @@ class Guard : Piece
     private bool _isValidMove(Location currentLocation, Location targetLocation)
     {
         // Check is it inside the correct 9 spots
-        if (!((targetLocation.column < 3) && (2 < targetLocation.row) && (targetLocation.row < 6))) { return false; }
+        if (!((targetLocation.row < 3) && (2 < targetLocation.column) && (targetLocation.column < 6))) { return false; }
 
-        if (!isMoveOneAdjacent(currentLocation, targetLocation)) { return false; }
+        else if (!isMoveOneAdjacent(currentLocation, targetLocation)) { return false; }
 
         return true;
     }                                                                                                                  

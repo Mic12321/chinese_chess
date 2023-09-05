@@ -15,6 +15,10 @@ class ChineseChess
     public ChineseChess() 
     {
         playerPassed = false;
+        
+        board = new Board();
+        redPlayer = new Player(Colour.Red);
+        blackPlayer = new Player(Colour.Black);
     }
 
     private void changeCurrentPlayer() 
@@ -64,24 +68,25 @@ class ChineseChess
                 {
                     string[] split=input.Split(' ');
 
-                    int pieceRow = int.Parse(split[0]);
-                    int pieceColumn = int.Parse(split[1]);
-                    int newRow = int.Parse(split[2]);
-                    int newColumn = int.Parse(split[3]);
+                    Location currentLocation = new Location(int.Parse(split[0]), int.Parse(split[1]));
+                    Location targetLocation = new Location(int.Parse(split[2]), int.Parse(split[3]));
 
 
+                    if (board.grid[currentLocation.column, currentLocation.row].isValidMove(currentLocation, targetLocation, board)) {
 
-                    // If move is valid
-                    playerPassed = false;
+                        board.movePiece(currentLocation, targetLocation);
+
+                        playerPassed = false;
+                        inputting = false;
+                    }
+
 
                 }
                 catch (System.FormatException) { System.Console.WriteLine("Player " + currentPlayer.roleColour + " invalid move, format or index issue"); }
                 catch (System.IndexOutOfRangeException) { System.Console.WriteLine("Player " + currentPlayer.roleColour + " invalid move, index issue"); }
                 catch (System.Exception exception) { System.Console.WriteLine(exception.Message); }
             }
-
-
-            
+  
         }
     }
 }

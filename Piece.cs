@@ -54,10 +54,16 @@ class Piece {
                 targetLocation.row < (board.row + 1));
     }
 
+    ///////////
+    public bool isValidMove(Location currentLocation, Location targetLocation, Board board)
+    {
+        return false;
+    }
+
     // Flip the piece row of location only from lower to upper
     protected Location flipLocationToUpper(Location location, Board board) 
     {
-        location.column = board.columnHalf - location.column;
+        location.column = board.rowHalf - location.column;
 
         return location;
     }

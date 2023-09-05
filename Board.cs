@@ -6,16 +6,24 @@ class Board
 
   public Piece[,] grid { set; get; }
 
-  public int row { set; get; }
+  public int column { get; }
+  public int row { get; }
 
-  public int column { set; get; }
-  public int columnHalf { get { return column/2; } }
+  public int rowHalf { get { return row/2; } }
 
 
-  // Close to (0, 0) is colour black side.
-  // Close to (8, 0) is colour red side.
-  private void initBoard() 
-  { 
+
+
+  public Board()
+  {
+    column = 9;
+    row = 10;
+
+    Piece[,] grid = new Piece[column, row];
+    
+    
+    // Close to (0, 0) is colour black side.
+    // Close to (8, 0) is colour red side.
     grid[0, 0] = new Rook(Colour.Black);
     grid[8, 0] = new Rook(Colour.Black);
     grid[0, 9] = new Rook(Colour.Red);
@@ -41,8 +49,8 @@ class Board
 
     grid[1, 2] = new Canon(Colour.Black);
     grid[7, 2] = new Canon(Colour.Black);
-    grid[1, -3] = new Canon(Colour.Red);
-    grid[7, -3] = new Canon(Colour.Red);
+    grid[1, 7] = new Canon(Colour.Red);
+    grid[7, 7] = new Canon(Colour.Red);
 
     grid[0, 3] = new Soldier(Colour.Black, new Location(0, 3));
     grid[2, 3] = new Soldier(Colour.Black, new Location(2, 3));
@@ -50,21 +58,11 @@ class Board
     grid[6, 3] = new Soldier(Colour.Black, new Location(6, 3));
     grid[8, 3] = new Soldier(Colour.Black, new Location(8, 3));
 
-    grid[0, -4] = new Soldier(Colour.Red, new Location(0, -4));
-    grid[2, -4] = new Soldier(Colour.Red, new Location(2, -4));
-    grid[4, -4] = new Soldier(Colour.Red, new Location(4, -4));
-    grid[6, -4] = new Soldier(Colour.Red, new Location(6, -4));
-    grid[8, -4] = new Soldier(Colour.Red, new Location(8, -4));
-  }
-
-  public Board()
-  {
-    row = 9;
-    column = 10;
-
-    Piece[,] grid = new Piece[row, column];
-    
-    initBoard();
+    grid[0, 6] = new Soldier(Colour.Red, new Location(0, -4));
+    grid[2, 6] = new Soldier(Colour.Red, new Location(2, -4));
+    grid[4, 6] = new Soldier(Colour.Red, new Location(4, -4));
+    grid[6, 6] = new Soldier(Colour.Red, new Location(6, -4));
+    grid[8, 6] = new Soldier(Colour.Red, new Location(8, -4));
   }
 
   public void movePiece(Location currentLocation, Location targetLocation)

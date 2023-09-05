@@ -18,7 +18,7 @@ class King : Piece
         if (!(isMoveOneHorizontal(currentLocation, targetLocation) ^ isMoveOneVertical(currentLocation, targetLocation))) { return false; }
 
         // Check is it inside the correct 9 spots
-        if (!((targetLocation.column < 3) && (2 < targetLocation.row) && (targetLocation.row < 6))) { return false; }
+        if (!((targetLocation.row < 3) && (2 < targetLocation.column) && (targetLocation.column < 6))) { return false; }
 
         return true;
     }
