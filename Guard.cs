@@ -25,7 +25,7 @@ class Guard : Piece
         if (!isOnBoard(targetLocation, board)) { return false; }
         else if (isTargetLocationGetBlocked(targetLocation, board)) { return false; }
 
-        else if (initLocationIsUpper) { return _isValidMove(currentLocation, targetLocation); }
+        if (initLocationIsUpper) { return _isValidMove(currentLocation, targetLocation); }
         else { return (_isValidMove(flipLocationToUpper(currentLocation, board), flipLocationToUpper(targetLocation, board))); }
     }
 }
