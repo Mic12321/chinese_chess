@@ -6,20 +6,13 @@ class ChineseChess
 
     public Player blackPlayer { private set; get; }
 
-    private Player currentPlayer;
+    public Player currentPlayer { private set; get; }
 
     private bool playerPassed;
     
     private bool gameRun;
 
-    public ChineseChess() 
-    {
-        playerPassed = false;
-        
-        board = new Board();
-        redPlayer = new Player(Colour.Red);
-        blackPlayer = new Player(Colour.Black);
-    }
+    
 
     private void changeCurrentPlayer() 
     {
@@ -41,11 +34,6 @@ class ChineseChess
         else {
             playerPassed = true;
         }
-    }
-
-    private void eachRoundSetUp()
-    {
-        
     }
 
     public void playerInput() 
@@ -80,6 +68,10 @@ class ChineseChess
                         inputting = false;
                     }
 
+                    else { System.Console.WriteLine("Invalid move"); }
+
+                    
+
 
                 }
                 catch (System.FormatException) { System.Console.WriteLine("Player " + currentPlayer.roleColour + " invalid move, format or index issue"); }
@@ -88,5 +80,16 @@ class ChineseChess
             }
   
         }
+    }
+
+    public ChineseChess() 
+    {
+        playerPassed = false;
+        
+        board = new Board();
+        redPlayer = new Player(Colour.Red);
+        blackPlayer = new Player(Colour.Black);
+
+        ////////
     }
 }

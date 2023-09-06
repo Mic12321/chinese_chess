@@ -11,6 +11,19 @@ class Horse : Piece
         else if (isTargetLocationGetBlocked(targetLocation, board)) { return false; }
 
         
-        return true;
+        int columnDifference = System.Math.Abs(currentLocation.column-targetLocation.column);
+        int rowDifference = System.Math.Abs(currentLocation.row-targetLocation.row);
+
+        if (columnDifference==1 && rowDifference==2) 
+        {
+            return(board.grid[currentLocation.column, currentLocation.row+(targetLocation.row-currentLocation.row)/2]==null); 
+        }
+        
+        else if (columnDifference==2 && rowDifference==1)
+        { 
+            return(board.grid[currentLocation.column+(targetLocation.column-currentLocation.column)/2, currentLocation.row]==null);  
+        }
+
+        return false;
     }
 }
