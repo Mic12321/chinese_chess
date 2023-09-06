@@ -6,6 +6,12 @@ class Rook : Piece
         colour = _colour;
     }
 
+    // private bool isBlocked(Location currentLocation, Location targetLocation, Board board) 
+    // {
+
+    //     return false;
+    // }
+
     public bool isValidMove(Location currentLocation, Location targetLocation, Board board)
     {
         if (!isOnBoard(targetLocation, board)) { return false; }
