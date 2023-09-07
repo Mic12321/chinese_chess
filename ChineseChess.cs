@@ -8,28 +8,22 @@ class ChineseChess
 
     public Player currentPlayer { private set; get; }
 
-    private bool playerPassed;
+    public bool playerPassed { private set; get; };
     
-    private bool gameRun;
+    public bool gameRun { private set; get; };
 
     
 
-    private void changeCurrentPlayer() 
+    public void changeCurrentPlayer() 
     {
         if (currentPlayer.roleColour == Colour.Black) { currentPlayer = redPlayer; }
         else { currentPlayer = blackPlayer; }
     }
 
-    private void gameFinish() 
-    {
-        gameRun = false;
-        System.Console.WriteLine("Game is finished, thanks for playing");
-    }
-
     private void pass()
     {
         if (playerPassed) {
-            gameFinish();
+            gameRun = false;
         }
         else {
             playerPassed = true;

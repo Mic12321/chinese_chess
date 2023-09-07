@@ -22,8 +22,6 @@ class Rook : Piece
                         else { return (targetLocation.row==i); }
                     }
                 }
-
-                return true;
             }
 
             else {
@@ -35,8 +33,6 @@ class Rook : Piece
                         else { return (targetLocation.row==i); }
                     }
                 }
-
-                return true;
             }
         }
         else {
@@ -49,8 +45,6 @@ class Rook : Piece
                         else { return (targetLocation.column==i); }
                     }
                 }
-
-                return true;
             }
 
             else {
@@ -62,10 +56,10 @@ class Rook : Piece
                         else { return (targetLocation.column==i); }
                     }
                 }
-
-                return true;
             }
-            
+
+
+            return true;
         }
     }
 
