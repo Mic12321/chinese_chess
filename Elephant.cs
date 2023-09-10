@@ -15,19 +15,20 @@ class Elephant : Piece
         int midPointColumn = (currentLocation.column+targetLocation.column)/2;
         int midPointRow = (currentLocation.row+targetLocation.row)/2;
 
-        return (board.grid[midPointColumn, midPointRow]!=null);
+        return (board.grid[midPointColumn, midPointRow].colour!=Colour.None);
     }
 
     private bool _isValidMove(Location currentLocation, Location targetLocation)
     {
-        if (targetLocation.row<5) { return false; }
+        if (targetLocation.row>4) { System.Console.WriteLine("1"); return false; }
 
         else if ((currentLocation.column-2==targetLocation.column ||currentLocation.column+2==targetLocation.column) 
             && (currentLocation.row-2==targetLocation.row ||currentLocation.row+2==targetLocation.row))
         {
+            System.Console.WriteLine("2");
             return true;
         }
-
+        System.Console.WriteLine("3");
         return false;
     }
 
@@ -39,6 +40,6 @@ class Elephant : Piece
         if (isBlocked(currentLocation, targetLocation, board)) { return false; }
 
         if (initLocationIsUpper) { return _isValidMove(currentLocation, targetLocation); }
-        else { return (_isValidMove(flipLocationToUpper(currentLocation, board), flipLocationToUpper(targetLocation, board))); } 
+        else { System.Console.WriteLine("6"); return (_isValidMove(flipLocationToUpper(currentLocation, board), flipLocationToUpper(targetLocation, board))); } 
     }
 }
