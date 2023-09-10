@@ -32,8 +32,8 @@ class Board
   public void movePiece(Location currentLocation, Location targetLocation)
   {
     try {
-      grid[targetLocation.column, targetLocation.row] = grid[currentLocation.column, targetLocation.row];
-      grid[currentLocation.column, targetLocation.row] = new Piece();
+      grid[targetLocation.column, targetLocation.row] = grid[currentLocation.column, currentLocation.row];
+      grid[currentLocation.column, currentLocation.row] = new Piece();
     } catch(System.Exception e) { System.Console.WriteLine(e); }
 
   }
