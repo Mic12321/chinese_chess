@@ -14,35 +14,36 @@ class Rook : Piece
             
             if (currentLocation.row > targetLocation.row)
             {
-                for (int i=currentLocation.row; i!=targetLocation.row; --i)
+
+                for (int i=currentLocation.row; i>targetLocation.row; --i)
                 {
-                    if (board.grid[currentLocation.column, i].colour!=Colour.None) 
+                    if (board.grid[currentLocation.column, i - 1].colour!=Colour.None) 
                     { 
-                        if(board.grid[currentLocation.column, i].colour==colour) { return false; }
-                        else { return (targetLocation.row==i); }
+                        if(board.grid[currentLocation.column, i - 1].colour==colour) { return false; }
+                        else { return (targetLocation.row==i - 1); }
                     }
                 }
             }
 
             else {
-                for (int i=currentLocation.row; i!=targetLocation.row; ++i)
+                for (int i=currentLocation.row; i<targetLocation.row; ++i)
                 {
-                    if (board.grid[currentLocation.column, i].colour!=Colour.None) 
+                    if (board.grid[currentLocation.column, i + 1].colour!=Colour.None) 
                     { 
-                        if(board.grid[currentLocation.column, i].colour==colour) { return false; }
-                        else { return (targetLocation.row==i); }
+                        if(board.grid[currentLocation.column, i + 1].colour==colour) { return false; }
+                        else { return (targetLocation.row==i + 1); }
                     }
                 }
             }
         }
         else {
             if (currentLocation.row > targetLocation.row) {
-                for (int i=currentLocation.column; i!=targetLocation.column; --i)
+                for (int i=currentLocation.column; i>targetLocation.column; --i)
                 {
-                    if (board.grid[i, currentLocation.column].colour!=Colour.None) 
+                    if (board.grid[i - 1, currentLocation.column].colour!=Colour.None) 
                     { 
-                        if(board.grid[i, currentLocation.column].colour==colour) { return false; }
-                        else { return (targetLocation.column==i); }
+                        if(board.grid[i - 1, currentLocation.column].colour==colour) { return false; }
+                        else { return (targetLocation.column==i - 1); }
                     }
                 }
             }
@@ -50,10 +51,10 @@ class Rook : Piece
             else {
                 for (int i=currentLocation.column; i!=targetLocation.column; ++i)
                 {
-                    if (board.grid[i, currentLocation.column].colour!=Colour.None) 
+                    if (board.grid[i + 1, currentLocation.column].colour!=Colour.None) 
                     { 
-                        if(board.grid[i, currentLocation.column].colour==colour) { return false; }
-                        else { return (targetLocation.column==i); }
+                        if(board.grid[i + 1, currentLocation.column].colour==colour) { return false; }
+                        else { return (targetLocation.column==i + 1); }
                     }
                 }
             }
