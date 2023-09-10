@@ -22,7 +22,7 @@ class Canon : Piece
             {
                 for (int i = currentLocation.row -1 ; i>=targetLocation.row; --i)
                 {
-                    if (board.grid[currentLocation.column, i].colour!=null)
+                    if (board.grid[currentLocation.column, i].colour!=Colour.None)
                     {
                         byPass+=1;
 
@@ -37,7 +37,7 @@ class Canon : Piece
             {
                 for (int i = currentLocation.row+1 ; i<=targetLocation.row; ++i)
                 {
-                    if (board.grid[currentLocation.column, i].colour!=null)
+                    if (board.grid[currentLocation.column, i].colour!=Colour.None)
                     {
                         byPass+=1;
 
@@ -54,7 +54,7 @@ class Canon : Piece
             {
                 for (int i = currentLocation.column -1 ; i>=targetLocation.column; --i)
                 {
-                    if (board.grid[i, currentLocation.row].colour!=null)
+                    if (board.grid[i, currentLocation.row].colour!=Colour.None)
                     {
                         byPass+=1;
 
@@ -69,7 +69,7 @@ class Canon : Piece
             {
                 for (int i = currentLocation.column+1 ; i<=targetLocation.column; ++i)
                 {
-                    if (board.grid[i, currentLocation.row].colour!=null)
+                    if (board.grid[i, currentLocation.row].colour!=Colour.None)
                     {
                         byPass+=1;
 

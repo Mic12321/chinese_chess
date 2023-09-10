@@ -16,7 +16,7 @@ class Rook : Piece
             {
                 for (int i=currentLocation.row; i!=targetLocation.row; --i)
                 {
-                    if (board.grid[currentLocation.column, i].colour!=null) 
+                    if (board.grid[currentLocation.column, i].colour!=Colour.None) 
                     { 
                         if(board.grid[currentLocation.column, i].colour==colour) { return false; }
                         else { return (targetLocation.row==i); }
@@ -27,7 +27,7 @@ class Rook : Piece
             else {
                 for (int i=currentLocation.row; i!=targetLocation.row; ++i)
                 {
-                    if (board.grid[currentLocation.column, i].colour!=null) 
+                    if (board.grid[currentLocation.column, i].colour!=Colour.None) 
                     { 
                         if(board.grid[currentLocation.column, i].colour==colour) { return false; }
                         else { return (targetLocation.row==i); }
@@ -39,7 +39,7 @@ class Rook : Piece
             if (currentLocation.row > targetLocation.row) {
                 for (int i=currentLocation.column; i!=targetLocation.column; --i)
                 {
-                    if (board.grid[i, currentLocation.column].colour!=null) 
+                    if (board.grid[i, currentLocation.column].colour!=Colour.None) 
                     { 
                         if(board.grid[i, currentLocation.column].colour==colour) { return false; }
                         else { return (targetLocation.column==i); }
@@ -50,7 +50,7 @@ class Rook : Piece
             else {
                 for (int i=currentLocation.column; i!=targetLocation.column; ++i)
                 {
-                    if (board.grid[i, currentLocation.column].colour!=null) 
+                    if (board.grid[i, currentLocation.column].colour!=Colour.None) 
                     { 
                         if(board.grid[i, currentLocation.column].colour==colour) { return false; }
                         else { return (targetLocation.column==i); }

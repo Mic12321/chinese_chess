@@ -12,64 +12,28 @@ class Board
   public int rowHalf { get { return row/2; } }
 
 
-
-
-  public Board()
+  public Board(int _column, int _row)
   {
-    column = 9;
-    row = 10;
+    column = _column;
+    row = _row;
 
-    Piece[,] grid = new Piece[column, row];
-    
-    
-    // Close to (0, 0) is colour black side.
-    // Close to (8, 0) is colour red side.
-    grid[0, 0] = new Rook(Colour.Black);
-    grid[8, 0] = new Rook(Colour.Black);
-    grid[0, 9] = new Rook(Colour.Red);
-    grid[8, 9] = new Rook(Colour.Red);
+    grid = new Piece[column, row];
 
-    grid[1, 0] = new Horse(Colour.Black);
-    grid[7, 0] = new Horse(Colour.Black);
-    grid[1, 9] = new Horse(Colour.Red);
-    grid[7, 9] = new Horse(Colour.Red);
-
-    grid[2, 0] = new Elephant(Colour.Black, new Location(2, 0));
-    grid[6, 0] = new Elephant(Colour.Black, new Location(6, 0));
-    grid[2, 9] = new Elephant(Colour.Red, new Location(2, 9));
-    grid[6, 9] = new Elephant(Colour.Red, new Location(6, 9));
-
-    grid[3, 0] = new Guard(Colour.Black, new Location(3, 0));
-    grid[5, 0] = new Guard(Colour.Black, new Location(5, 0));
-    grid[3, 9] = new Guard(Colour.Red, new Location(3, 9));
-    grid[5, 9] = new Guard(Colour.Red, new Location(5, 9));
-
-    grid[4, 0] = new King(Colour.Black, new Location(4, 0));
-    grid[4, 9] = new King(Colour.Red, new Location(4, 9));
-
-    grid[1, 2] = new Canon(Colour.Black);
-    grid[7, 2] = new Canon(Colour.Black);
-    grid[1, 7] = new Canon(Colour.Red);
-    grid[7, 7] = new Canon(Colour.Red);
-
-    grid[0, 3] = new Soldier(Colour.Black, new Location(0, 3));
-    grid[2, 3] = new Soldier(Colour.Black, new Location(2, 3));
-    grid[4, 3] = new Soldier(Colour.Black, new Location(4, 3));
-    grid[6, 3] = new Soldier(Colour.Black, new Location(6, 3));
-    grid[8, 3] = new Soldier(Colour.Black, new Location(8, 3));
-
-    grid[0, 6] = new Soldier(Colour.Red, new Location(0, -4));
-    grid[2, 6] = new Soldier(Colour.Red, new Location(2, -4));
-    grid[4, 6] = new Soldier(Colour.Red, new Location(4, -4));
-    grid[6, 6] = new Soldier(Colour.Red, new Location(6, -4));
-    grid[8, 6] = new Soldier(Colour.Red, new Location(8, -4));
+    for (int i = 0; i < row; ++i) 
+    { 
+      for (int j = 0; j < column; ++j) 
+      {
+        grid[j,i] = new Piece();
+      }  
+    }
   }
+
 
   public void movePiece(Location currentLocation, Location targetLocation)
   {
     try {
       grid[targetLocation.column, targetLocation.row] = grid[currentLocation.column, targetLocation.row];
-      grid[currentLocation.column, targetLocation.row] = null;
+      grid[currentLocation.column, targetLocation.row] = new Piece();
     } catch(System.Exception e) { System.Console.WriteLine(e); }
 
   }

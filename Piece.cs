@@ -1,5 +1,5 @@
 class Piece {
-    public Colour colour { set; get; }
+    public Colour colour { protected set; get; }
 
     protected bool isMoveOneBackward(Location currentLocation, Location targetLocation)
     {
@@ -66,5 +66,10 @@ class Piece {
         location.column = board.rowHalf - location.column;
 
         return location;
+    }
+
+    public Piece()
+    {
+        colour = Colour.None;
     }
 }    
