@@ -21,7 +21,7 @@ class Canon : Piece
             if (currentLocation.row > targetLocation.row)
             {
 
-                for (int i = currentLocation.row - 1 ; i > targetLocation.row; --i)
+                for (int i = currentLocation.row - 1 ; i >= targetLocation.row; --i)
                 {
                     if (board.grid[currentLocation.column, i].colour!=Colour.None)
                     {
@@ -36,7 +36,7 @@ class Canon : Piece
 
             else 
             {
-                for (int i = currentLocation.row + 1 ; i < targetLocation.row; ++i)
+                for (int i = currentLocation.row + 1 ; i <= targetLocation.row; ++i)
                 {
                     if (board.grid[currentLocation.column, i].colour!=Colour.None)
                     {
@@ -53,7 +53,7 @@ class Canon : Piece
         {
             if (currentLocation.column > targetLocation.column)
             {
-                for (int i = currentLocation.column - 1 ; i > targetLocation.column; --i)
+                for (int i = currentLocation.column - 1 ; i >= targetLocation.column; --i)
                 {
                     if (board.grid[i, currentLocation.row].colour!=Colour.None)
                     {
@@ -68,7 +68,7 @@ class Canon : Piece
 
             else 
             {
-                for (int i = currentLocation.column + 1 ; i < targetLocation.column; ++i)
+                for (int i = currentLocation.column + 1 ; i <= targetLocation.column; ++i)
                 {
                     if (board.grid[i, currentLocation.row].colour!=Colour.None)
                     {
@@ -82,12 +82,11 @@ class Canon : Piece
             }
         }
 
-
         // No pieces on the path
         if (byPass == 0) { return true; }
 
         // Allow to jump a piece when captureing an opponenet's piece
-        else if (byPass == 1 && board.grid[targetLocation.column, targetLocation.row].colour==opponentColour()) { return true; }
+        else if (byPass == 2 && board.grid[targetLocation.column, targetLocation.row].colour==opponentColour()) { return true; }
 
         return false;
     }
