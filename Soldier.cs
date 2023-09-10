@@ -36,10 +36,7 @@ class Soldier : Piece
         else if (isTargetLocationGetBlocked(targetLocation, board)) { return false; }
 
         else if (initLocationIsUpper) { return _isValidMove(currentLocation, targetLocation); }
-        else { 
-            System.Console.WriteLine(flipLocationToUpper(currentLocation, board).row); 
-            System.Console.WriteLine(flipLocationToUpper(targetLocation, board).row); 
-            return _isValidMove(flipLocationToUpper(currentLocation, board), flipLocationToUpper(targetLocation, board)); }
+        else { return _isValidMove(flipLocationToUpper(currentLocation, board), flipLocationToUpper(targetLocation, board)); }
     }
     
 }
