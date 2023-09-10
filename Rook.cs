@@ -57,10 +57,9 @@ class Rook : Piece
                     }
                 }
             }
-
-
-            return true;
         }
+
+        return true;
     }
 
     public bool isValidMove(Location currentLocation, Location targetLocation, Board board)

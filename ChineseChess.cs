@@ -8,9 +8,9 @@ class ChineseChess
 
     public Player currentPlayer { private set; get; }
 
-    public bool playerPassed { private set; get; };
+    public bool playerPassed { private set; get; }
     
-    public bool gameRun { private set; get; };
+    public bool gameRun { private set; get; }
 
     
 
@@ -30,7 +30,7 @@ class ChineseChess
         }
     }
 
-    public void playerInput() 
+    private void playerInput() 
     {
         bool inputting = true;
         string input;
@@ -84,6 +84,6 @@ class ChineseChess
         redPlayer = new Player(Colour.Red);
         blackPlayer = new Player(Colour.Black);
 
-        ////////
+        // showBoard();
     }
 }
