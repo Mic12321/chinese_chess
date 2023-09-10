@@ -5,7 +5,7 @@ class Horse : Piece
         colour = _colour;
     }
 
-    public bool isValidMove(Location currentLocation, Location targetLocation, Board board) 
+    public override bool isValidMove(Location currentLocation, Location targetLocation, Board board) 
     {
         if (!isOnBoard(targetLocation, board)) { return false; }
         else if (isTargetLocationGetBlocked(targetLocation, board)) { return false; }
@@ -16,12 +16,12 @@ class Horse : Piece
 
         if (columnDifference==1 && rowDifference==2) 
         {
-            return(board.grid[currentLocation.column, currentLocation.row+(targetLocation.row-currentLocation.row)/2]==null); 
+            return(board.grid[currentLocation.column, currentLocation.row+(targetLocation.row-currentLocation.row)/2]==Colour.None); 
         }
         
         else if (columnDifference==2 && rowDifference==1)
         { 
-            return(board.grid[currentLocation.column+(targetLocation.column-currentLocation.column)/2, currentLocation.row]==null);  
+            return(board.grid[currentLocation.column+(targetLocation.column-currentLocation.column)/2, currentLocation.row]==Colour.None);  
         }
 
         return false;
