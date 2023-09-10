@@ -13,7 +13,7 @@ class Piece {
 
     protected bool isMoveOneForward(Location currentLocation, Location targetLocation) 
     {
-        return (currentLocation.row==targetLocation.row+1);
+        return (currentLocation.row + 1==targetLocation.row);
     }
 
     protected bool isColumnSame(Location currentLocation, Location targetLocation) 
@@ -63,7 +63,7 @@ class Piece {
     // Flip the piece row of location only from lower to upper
     protected Location flipLocationToUpper(Location location, Board board) 
     {
-        location.row -= board.rowHalf;
+        location.row = board.row - 1 - location.row;
 
         return location;
     }

@@ -13,5 +13,6 @@ class Program
       chineseChess.changeCurrentPlayer();
     }
 
+    System.Console.WriteLine("Thanks for playing~!");
   }
 }
