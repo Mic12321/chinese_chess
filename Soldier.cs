@@ -12,7 +12,7 @@ class Soldier : Piece
     
     private bool isValidMoveBeforeRiver(Location currentLocation, Location targetLocation) 
     {
-        return (isMoveOneForward(currentLocation, targetLocation) && (isRowSame(currentLocation, targetLocation)));
+        return (isMoveOneForward(currentLocation, targetLocation) && (isColumnSame(currentLocation, targetLocation)));
     }
 
     private bool _isValidMove(Location currentLocation, Location targetLocation) 
@@ -26,11 +26,11 @@ class Soldier : Piece
 
         // Crossed river
         else {
-            return (isValidMoveBeforeRiver(currentLocation, targetLocation) || (isMoveOneHorizontal(currentLocation, targetLocation) && (isColumnSame(currentLocation, targetLocation))));
+            return (isValidMoveBeforeRiver(currentLocation, targetLocation) || (isMoveOneHorizontal(currentLocation, targetLocation) && (isRowSame(currentLocation, targetLocation))));
         }
     }
 
-    public bool isValidMove(Location currentLocation, Location targetLocation, Board board) 
+    public override bool isValidMove(Location currentLocation, Location targetLocation, Board board) 
     {
         if (!isOnBoard(targetLocation, board)) { return false; }
         else if (isTargetLocationGetBlocked(targetLocation, board)) { return false; }

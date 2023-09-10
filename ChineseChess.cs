@@ -30,7 +30,7 @@ class ChineseChess
         }
     }
 
-    private void playerInput() 
+    public void playerInput() 
     {
         bool inputting = true;
         string input;
@@ -93,8 +93,8 @@ class ChineseChess
 
                 else 
                 {
-                    System.Console.Write(board.grid[j,i].colour.ToString()[0]);
-                    System.Console.Write(board.grid[j,i].GetType().Name[0]);
+                    System.Console.Write(board.grid[j,i].colour.ToString()[0]);     // First letter of the colour, "Red" is "R", "Black" is "B"
+                    System.Console.Write(board.grid[j,i].GetType().Name[0]);        // First letter of the piece class name, "Rook" is "R", "Horse" is "H", etc.
                 }
 
                 System.Console.Write(" ");
@@ -159,5 +159,10 @@ class ChineseChess
 
         redPlayer = new Player(Colour.Red);
         blackPlayer = new Player(Colour.Black);
+
+        //
+        currentPlayer = new Player(Colour.Red);
+
+        gameRun = true;
     }
 }

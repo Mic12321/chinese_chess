@@ -62,7 +62,7 @@ class Rook : Piece
         return true;
     }
 
-    public bool isValidMove(Location currentLocation, Location targetLocation, Board board)
+    public override bool isValidMove(Location currentLocation, Location targetLocation, Board board)
     {
         if (!isOnBoard(targetLocation, board)) { return false; }
         

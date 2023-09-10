@@ -48,14 +48,14 @@ class Piece {
     }
 
     protected bool isOnBoard(Location targetLocation, Board board) {
-        return (0 < targetLocation.column && 
+        return (-1 < targetLocation.column && 
                 targetLocation.column < (board.column + 1) && 
-                0 < targetLocation.row && 
+                -1 < targetLocation.row && 
                 targetLocation.row < (board.row + 1));
     }
 
     ///////////
-    public bool isValidMove(Location currentLocation, Location targetLocation, Board board)
+    public virtual bool isValidMove(Location currentLocation, Location targetLocation, Board board)
     {
         return false;
     }
@@ -63,7 +63,7 @@ class Piece {
     // Flip the piece row of location only from lower to upper
     protected Location flipLocationToUpper(Location location, Board board) 
     {
-        location.column = board.rowHalf - location.column;
+        location.row -= board.rowHalf;
 
         return location;
     }
