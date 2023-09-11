@@ -1,0 +1,15 @@
+/home/penguin/Dev/Personal/github/chinese_chess/src/obj/Debug/net7.0/ChineseChess.csproj.AssemblyReference.cache
+/home/penguin/Dev/Personal/github/chinese_chess/src/obj/Debug/net7.0/ChineseChess.GeneratedMSBuildEditorConfig.editorconfig
+/home/penguin/Dev/Personal/github/chinese_chess/src/obj/Debug/net7.0/ChineseChess.AssemblyInfoInputs.cache
+/home/penguin/Dev/Personal/github/chinese_chess/src/obj/Debug/net7.0/ChineseChess.AssemblyInfo.cs
+/home/penguin/Dev/Personal/github/chinese_chess/src/obj/Debug/net7.0/ChineseChess.csproj.CoreCompileInputs.cache
+/home/penguin/Dev/Personal/github/chinese_chess/src/bin/Debug/net7.0/ChineseChess
+/home/penguin/Dev/Personal/github/chinese_chess/src/bin/Debug/net7.0/ChineseChess.deps.json
+/home/penguin/Dev/Personal/github/chinese_chess/src/bin/Debug/net7.0/ChineseChess.runtimeconfig.json
+/home/penguin/Dev/Personal/github/chinese_chess/src/bin/Debug/net7.0/ChineseChess.dll
+/home/penguin/Dev/Personal/github/chinese_chess/src/bin/Debug/net7.0/ChineseChess.pdb
+/home/penguin/Dev/Personal/github/chinese_chess/src/obj/Debug/net7.0/ChineseChess.dll
+/home/penguin/Dev/Personal/github/chinese_chess/src/obj/Debug/net7.0/refint/ChineseChess.dll
+/home/penguin/Dev/Personal/github/chinese_chess/src/obj/Debug/net7.0/ChineseChess.pdb
+/home/penguin/Dev/Personal/github/chinese_chess/src/obj/Debug/net7.0/ChineseChess.genruntimeconfig.cache
+/home/penguin/Dev/Personal/github/chinese_chess/src/obj/Debug/net7.0/ref/ChineseChess.dll

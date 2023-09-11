@@ -27,6 +27,13 @@ class ChineseChess
         {
             input = System.Console.ReadLine();
 
+            if (input=="gg") 
+            { 
+                inputting = false; 
+                gameRun = false; 
+                System.Console.WriteLine(currentPlayer.roleColour + " surrendered~!"); 
+            }
+
             try 
             {
                 string[] split=input.Split(' ');
@@ -40,13 +47,15 @@ class ChineseChess
                     board.movePiece(currentLocation, targetLocation);
 
                     inputting = false;
+
+
+                    if (isCheck()) 
+                    {
+                        System.Console.WriteLine("Checked!");
+                    }
                 }
 
                 else { System.Console.WriteLine("Invalid move"); }
-
-                
-
-
             }
             catch (System.FormatException) { System.Console.WriteLine("Player " + currentPlayer.roleColour + " invalid move, format or index issue"); }
             catch (System.IndexOutOfRangeException) { System.Console.WriteLine("Player " + currentPlayer.roleColour + " invalid move, index issue"); }
@@ -55,19 +64,77 @@ class ChineseChess
         }
     }
 
+    // Assume Red is below side
+    private Location getRedKingLocation()
+    {
+        for (int i=9; i>6; --i) 
+        {
+            for (int j=3; j<6; ++j)
+            {
+                if (board.grid[j,i].GetType().ToString()=="King") { return new Location(j, i); }
+            }
+        }
+
+        return new Location(-1, -1);
+    }
+
+    // Assume Black is upper side
+    private Location getBlackKingLocation()
+    {
+        for (int i=0; i<3; ++i) 
+        {
+            for (int j=3; j<6; ++j)
+            {
+                if (board.grid[j,i].GetType().ToString()=="King") { return new Location(j, i); }
+            }
+        }
+
+        return new Location(-1, -1);
+    }
+
+    public bool isCheck()
+    {
+        Location opponentKingLocation = new Location(-1, -1);
+
+        if (currentPlayer.roleColour==Colour.Red) { opponentKingLocation = getBlackKingLocation(); }
+        else if (currentPlayer.roleColour==Colour.Black) { opponentKingLocation = getRedKingLocation(); }
+
+        for (int i = 0; i < board.row; ++i) 
+        { 
+            for (int j = 0; j < board.column; ++j) 
+            {
+                if (currentPlayer.roleColour==board.grid[j,i].colour)
+                {
+                    Location currentLocation = new Location(j, i);
+                    if (board.grid[currentLocation.column, currentLocation.row].isValidMove(currentLocation, opponentKingLocation, board))
+                    {
+                        return true;
+                    }
+                }
+            }  
+        }
+        
+        return false;
+    }
+
 
     public void showBoard()
     {
         System.Console.WriteLine();
         
+        System.Console.Write("  ");
+        for (int j = 0; j < board.column; ++j) { System.Console.Write(j + "  "); }
+        System.Console.WriteLine();
+        
         for (int i = 0; i < board.row; ++i) 
         { 
+            System.Console.Write(i + " ");
             for (int j = 0; j < board.column; ++j) 
             {
 
                 if ((board.grid[j,i].colour)==Colour.None)
                 {
-                    System.Console.Write("NN");
+                    System.Console.Write("  ");
                 }
 
                 else 
