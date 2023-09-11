@@ -41,8 +41,9 @@ class ChineseChess
                 Location currentLocation = new Location(int.Parse(split[0]), int.Parse(split[1]));
                 Location targetLocation = new Location(int.Parse(split[2]), int.Parse(split[3]));
 
+                if (board.grid[currentLocation.column, currentLocation.row].colour!=currentPlayer.roleColour) { System.Console.WriteLine("Don't try to cheat! Invalid move"); }
 
-                if (board.grid[currentLocation.column, currentLocation.row].isValidMove(currentLocation, targetLocation, board)) {
+                else if (board.grid[currentLocation.column, currentLocation.row].isValidMove(currentLocation, targetLocation, board)) {
 
                     if (board.grid[targetLocation.column,targetLocation.row].GetType().ToString()=="King")
                     {

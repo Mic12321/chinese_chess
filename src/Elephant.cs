@@ -20,15 +20,13 @@ class Elephant : Piece
 
     private bool _isValidMove(Location currentLocation, Location targetLocation)
     {
-        if (targetLocation.row>4) { System.Console.WriteLine("1"); return false; }
+        if (targetLocation.row>4) { return false; }
 
         else if ((currentLocation.column-2==targetLocation.column ||currentLocation.column+2==targetLocation.column) 
             && (currentLocation.row-2==targetLocation.row ||currentLocation.row+2==targetLocation.row))
         {
-            System.Console.WriteLine("2");
             return true;
         }
-        System.Console.WriteLine("3");
         return false;
     }
 
@@ -40,6 +38,6 @@ class Elephant : Piece
         if (isBlocked(currentLocation, targetLocation, board)) { return false; }
 
         if (initLocationIsUpper) { return _isValidMove(currentLocation, targetLocation); }
-        else { System.Console.WriteLine("6"); return (_isValidMove(flipLocationToUpper(currentLocation, board), flipLocationToUpper(targetLocation, board))); } 
+        else { return (_isValidMove(flipLocationToUpper(currentLocation, board), flipLocationToUpper(targetLocation, board))); } 
     }
 }

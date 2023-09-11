@@ -9,12 +9,10 @@ class Rook : Piece
     // Improve required
     private bool isBlocked(Location currentLocation, Location targetLocation, Board board) 
     {
-
         if (isColumnSame(currentLocation, targetLocation)) { 
-            
             if (currentLocation.row > targetLocation.row)
             {
-
+                
                 for (int i=currentLocation.row; i>targetLocation.row; --i)
                 {
                     if (board.grid[currentLocation.column, i - 1].colour!=Colour.None) 
@@ -26,6 +24,7 @@ class Rook : Piece
             }
 
             else {
+
                 for (int i=currentLocation.row; i<targetLocation.row; ++i)
                 {
                     if (board.grid[currentLocation.column, i + 1].colour!=Colour.None) 
@@ -37,6 +36,7 @@ class Rook : Piece
             }
         }
         else {
+
             if (currentLocation.row > targetLocation.row) {
                 for (int i=currentLocation.column; i>targetLocation.column; --i)
                 {
@@ -49,7 +49,7 @@ class Rook : Piece
             }
 
             else {
-                for (int i=currentLocation.column; i!=targetLocation.column; ++i)
+                for (int i=currentLocation.column; i<targetLocation.column; ++i)
                 {
                     if (board.grid[i + 1, currentLocation.column].colour!=Colour.None) 
                     { 
