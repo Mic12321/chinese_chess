@@ -44,6 +44,12 @@ class ChineseChess
 
                 if (board.grid[currentLocation.column, currentLocation.row].isValidMove(currentLocation, targetLocation, board)) {
 
+                    if (board.grid[targetLocation.column,targetLocation.row].GetType().ToString()=="King")
+                    {
+                        gameRun=false;
+                        System.Console.WriteLine("GG~! " + currentPlayer.roleColour + " won the game~!");
+                    }
+
                     board.movePiece(currentLocation, targetLocation);
 
                     inputting = false;
