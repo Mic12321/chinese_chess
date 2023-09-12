@@ -6,7 +6,7 @@ This provides the board game, chinese chess, in console gameplay and the rules.
 
 ## What is chinese chess
 
-Chinese chess is similar to chess, it has kings, hourses, soliders. The main difference is some of the pieces movement are different. 
+Chinese chess is similar to chess, it has kings, horses, soliders. The main difference is some of the pieces movement are different. 
 
 ## Table of Contents
 
@@ -25,12 +25,24 @@ Chinese chess is similar to chess, it has kings, hourses, soliders. The main dif
 
 ## Execution
 
-### Linux
-
 1. Launch terminal.
 
 2. Change directory to the git repository directory.
 
-3. Change directory to the src folder.
+### Windows
 
-4. Enter "dotnet run".
+3. Change directory to the win-x64 folder
+
+4. Execute the exectuable file
+
+### Mac
+
+3. Change directory to the osx-x64 folder
+
+4. Execute the exectuable file
+
+### Linux
+
+3. Change directory to the linux-x64 folder
+
+4. Execute the exectuable file
