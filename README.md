@@ -31,4 +31,6 @@ Chinese chess is similar to chess, it has kings, hourses, soliders. The main dif
 
 2. Change directory to the git repository directory.
 
-3. Enter "dotnet run".
+3. Change directory to the src folder.
+
+4. Enter "dotnet run".
