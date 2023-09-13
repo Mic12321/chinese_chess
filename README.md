@@ -64,5 +64,6 @@ Chinese chess is similar to chess, it has kings, horses, soliders. The main diff
 
 ## Upcoming features
 
-- GUI gameplay and menu
-- Add an easy AI
+- GUI gameplay and menu.
+- Add an easy AI.
+- End game automatically when there is no moves can save the King.
