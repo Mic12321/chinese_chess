@@ -36,21 +36,21 @@ Chinese chess is similar to chess, it has kings, horses, soliders. The main diff
 
 ### Windows
 
-3. Change directory to the win-x64 folder
+3. Change directory to the win-x64 folder.
 
-4. Execute the exectuable file
+4. Execute the exectuable file named "ChineseChess.exe".
 
 ### Mac
 
-3. Change directory to the osx-x64 folder
+3. Change directory to the osx-x64 folder.
 
-4. Execute the exectuable file
+4. Execute the executable file named "ChineseChess".
 
 ### Linux
 
-3. Change directory to the linux-x64 folder
+3. Change directory to the linux-x64 folder.
 
-4. Execute the exectuable file
+4. Execute the executable file named "ChineseChess".
 
 ## How to play
 
@@ -67,3 +67,4 @@ Chinese chess is similar to chess, it has kings, horses, soliders. The main diff
 - GUI gameplay and menu.
 - Add an easy AI.
 - End game automatically when there is no moves can save the King.
+- Add tutorial.
